@@ -1,11 +1,12 @@
 import _ from 'lodash'
+import nameClass from '../util/nameClass'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
+export default function () {
+  return function ({ addUtilities, theme, variants }) {
     const utilities = _.fromPairs(
-      _.map(config('backgroundPosition'), (value, modifier) => {
+      _.map(theme('backgroundPosition'), (value, modifier) => {
         return [
-          `.${e(`bg-${modifier}`)}`,
+          nameClass('bg', modifier),
           {
             'background-position': value,
           },
@@ -13,6 +14,6 @@ export default function() {
       })
     )
 
-    addUtilities(utilities, config('modules.backgroundPosition'))
+    addUtilities(utilities, variants('backgroundPosition'))
   }
 }

@@ -1,18 +1,5 @@
-import _ from 'lodash'
+import createUtilityPlugin from '../util/createUtilityPlugin'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
-    const utilities = _.fromPairs(
-      _.map(config('width'), (value, modifier) => {
-        return [
-          `.${e(`w-${modifier}`)}`,
-          {
-            width: value,
-          },
-        ]
-      })
-    )
-
-    addUtilities(utilities, config('modules.width'))
-  }
+export default function () {
+  return createUtilityPlugin('width', [['w', ['width']]])
 }

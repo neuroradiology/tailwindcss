@@ -1,10 +1,10 @@
-export default function() {
-  return function({ addUtilities, config }) {
+export default function () {
+  return function ({ addUtilities, variants }) {
     addUtilities(
       {
         '.appearance-none': { appearance: 'none' },
       },
-      config('modules.appearance')
+      variants('appearance')
     )
   }
 }

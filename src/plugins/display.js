@@ -1,5 +1,5 @@
-export default function() {
-  return function({ addUtilities, config }) {
+export default function () {
+  return function ({ addUtilities, variants }) {
     addUtilities(
       {
         '.block': {
@@ -11,20 +11,56 @@ export default function() {
         '.inline': {
           display: 'inline',
         },
+        '.flex': {
+          display: 'flex',
+        },
+        '.inline-flex': {
+          display: 'inline-flex',
+        },
         '.table': {
           display: 'table',
+        },
+        '.table-caption': {
+          display: 'table-caption',
+        },
+        '.table-cell': {
+          display: 'table-cell',
+        },
+        '.table-column': {
+          display: 'table-column',
+        },
+        '.table-column-group': {
+          display: 'table-column-group',
+        },
+        '.table-footer-group': {
+          display: 'table-footer-group',
+        },
+        '.table-header-group': {
+          display: 'table-header-group',
+        },
+        '.table-row-group': {
+          display: 'table-row-group',
         },
         '.table-row': {
           display: 'table-row',
         },
-        '.table-cell': {
-          display: 'table-cell',
+        '.flow-root': {
+          display: 'flow-root',
+        },
+        '.grid': {
+          display: 'grid',
+        },
+        '.inline-grid': {
+          display: 'inline-grid',
+        },
+        '.contents': {
+          display: 'contents',
         },
         '.hidden': {
           display: 'none',
         },
       },
-      config('modules.display')
+      variants('display')
     )
   }
 }

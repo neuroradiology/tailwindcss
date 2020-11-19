@@ -1,18 +1,5 @@
-import _ from 'lodash'
+import createUtilityPlugin from '../util/createUtilityPlugin'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
-    const utilities = _.fromPairs(
-      _.map(config('height'), (value, modifier) => {
-        return [
-          `.${e(`h-${modifier}`)}`,
-          {
-            height: value,
-          },
-        ]
-      })
-    )
-
-    addUtilities(utilities, config('modules.height'))
-  }
+export default function () {
+  return createUtilityPlugin('height', [['h', ['height']]])
 }

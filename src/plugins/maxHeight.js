@@ -1,18 +1,5 @@
-import _ from 'lodash'
+import createUtilityPlugin from '../util/createUtilityPlugin'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
-    const utilities = _.fromPairs(
-      _.map(config('maxHeight'), (value, modifier) => {
-        return [
-          `.${e(`max-h-${modifier}`)}`,
-          {
-            'max-height': value,
-          },
-        ]
-      })
-    )
-
-    addUtilities(utilities, config('modules.maxHeight'))
-  }
+export default function () {
+  return createUtilityPlugin('maxHeight', [['max-h', ['maxHeight']]])
 }

@@ -1,5 +1,5 @@
-export default function() {
-  return function({ addUtilities, config }) {
+export default function () {
+  return function ({ addUtilities, variants }) {
     addUtilities(
       {
         '.border-solid': {
@@ -11,11 +11,14 @@ export default function() {
         '.border-dotted': {
           'border-style': 'dotted',
         },
+        '.border-double': {
+          'border-style': 'double',
+        },
         '.border-none': {
           'border-style': 'none',
         },
       },
-      config('modules.borderStyle')
+      variants('borderStyle')
     )
   }
 }

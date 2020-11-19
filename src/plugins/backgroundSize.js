@@ -1,11 +1,12 @@
 import _ from 'lodash'
+import nameClass from '../util/nameClass'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
+export default function () {
+  return function ({ addUtilities, theme, variants }) {
     const utilities = _.fromPairs(
-      _.map(config('backgroundSize'), (value, modifier) => {
+      _.map(theme('backgroundSize'), (value, modifier) => {
         return [
-          `.${e(`bg-${modifier}`)}`,
+          nameClass('bg', modifier),
           {
             'background-size': value,
           },
@@ -13,6 +14,6 @@ export default function() {
       })
     )
 
-    addUtilities(utilities, config('modules.backgroundSize'))
+    addUtilities(utilities, variants('backgroundSize'))
   }
 }

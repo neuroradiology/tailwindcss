@@ -1,18 +1,5 @@
-import _ from 'lodash'
+import createUtilityPlugin from '../util/createUtilityPlugin'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
-    const utilities = _.fromPairs(
-      _.map(config('minWidth'), (value, modifier) => {
-        return [
-          `.${e(`min-w-${modifier}`)}`,
-          {
-            'min-width': value,
-          },
-        ]
-      })
-    )
-
-    addUtilities(utilities, config('modules.minWidth'))
-  }
+export default function () {
+  return createUtilityPlugin('minWidth', [['min-w', ['minWidth']]])
 }

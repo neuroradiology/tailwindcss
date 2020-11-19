@@ -1,18 +1,5 @@
-import _ from 'lodash'
+import createUtilityPlugin from '../util/createUtilityPlugin'
 
-export default function() {
-  return function({ addUtilities, config, e }) {
-    const utilities = _.fromPairs(
-      _.map(config('maxWidth'), (value, modifier) => {
-        return [
-          `.${e(`max-w-${modifier}`)}`,
-          {
-            'max-width': value,
-          },
-        ]
-      })
-    )
-
-    addUtilities(utilities, config('modules.maxWidth'))
-  }
+export default function () {
+  return createUtilityPlugin('maxWidth', [['max-w', ['maxWidth']]])
 }

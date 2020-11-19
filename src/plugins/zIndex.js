@@ -1,18 +1,5 @@
-import _ from 'lodash'
+import createUtilityPlugin from '../util/createUtilityPlugin'
 
-export default function() {
-  return function({ addUtilities, config }) {
-    const utilities = _.fromPairs(
-      _.map(config('zIndex'), (value, modifier) => {
-        return [
-          `.z-${modifier}`,
-          {
-            'z-index': value,
-          },
-        ]
-      })
-    )
-
-    addUtilities(utilities, config('modules.zIndex'))
-  }
+export default function () {
+  return createUtilityPlugin('zIndex', [['z', ['zIndex']]])
 }
